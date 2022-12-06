@@ -22,3 +22,25 @@ def finding_factors(n):
 
 print('Cписок простых множителей:')
 print(Funk_for_2_3_task.elem(finding_factors(num)))
+
+# вариант 2
+
+def dividers(a: int, uniq: bool = False) -> list[int]:
+    """"Возвращает список простых делителей числа.
+    uniq = True вернет список уникальных делителей"""
+    i = 2
+    dividers = []
+    while a != 1:
+        while a % i == 0:
+            dividers.append(i)
+            a //= i
+        i += 1
+    if uniq:
+        return list(set(dividers))
+    else:
+        return dividers
+
+
+a = 81
+print(f'Список натуральных делителей числа {a}:{dividers(a)}')
+print(f'Список уникальных делителей числа {a}:{dividers(a, True)}')
